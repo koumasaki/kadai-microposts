@@ -51,7 +51,11 @@ class MicropostsController extends Controller
             'content' => 'required|max:191',
         ]);
         
-        //投稿の作成は $user->microposts()->create(['content' => 'micropost test'])
+        //$request->user()＝ログイン者のUserのレコード（決まり文句）を取り出す
+        //↓
+        //microposts()＝micropostテーブルの中のuser_idが自身（User.php）のidと等しいものを取ってくる
+        //↓
+        //create＝続けて指示する項目と合わせて保存
         $request->user()->microposts()->create([
             'content' => $request->content,
         ]);
