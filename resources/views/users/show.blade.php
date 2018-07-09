@@ -19,7 +19,6 @@
                 <li role="presentation" class="{{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings', ['id' => $user->id]) }}">Followings <span class="badge">{{ $count_followings }}</span></a></li>
                 <li role="presentation" class="{{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id' => $user->id]) }}">Followers <span class="badge">{{ $count_followers }}</span></a></li>
             </ul>
-        </div>
         @if (Auth::id() == $user->id)
                   {!! Form::open(['route' => 'microposts.store']) !!}
                       <div class="form-group">
@@ -31,5 +30,6 @@
         @if (count($microposts) > 0)
             @include('microposts.microposts', ['microposts' => $microposts])
         @endif
+        </div>
     </div>
 @endsection
