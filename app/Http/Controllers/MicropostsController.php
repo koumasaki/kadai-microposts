@@ -12,7 +12,7 @@ class MicropostsController extends Controller
         $data = [];  //必要なの？   A:今はおっしゃる通りいらない。
         if (\Auth::check()) {  //ログイン中かチェック
             $user = \Auth::user();  //ログイン中のユーザー情報
-            $microposts = $user->microposts()->orderBy('created_at', 'desc')->paginate(10);  //ログイン中のユーザーの投稿、登録順、1頁10件
+            $microposts = $user->feed_microposts()->orderBy('created_at', 'desc')->paginate(10);  //ログイン中のユーザーの投稿、登録順、1頁10件
             
             $data = [
                 'user' => $user,
