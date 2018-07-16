@@ -136,11 +136,11 @@ class User extends Authenticatable
     }
     
     //お気に入り投稿の取得
-    public function favorite_microposts()
-    {
-        $favorite_micropost_ids = $this->favorittings()-> pluck('microposts.id')->toArray();
-        $favorite_micropost_ids[] = $this->id;
-        return Micropost::WhereIn('id', $favorite_micropost_ids);
-    }
+    //public function favorite_microposts()
+    //{
+    //    $favorite_micropost_ids = $this->favorittings()-> pluck('microposts.id')->toArray();
+    //    $favorite_micropost_ids[] = $this->id;
+    //    return Micropost::WhereIn('id', $favorite_micropost_ids);
+    //}
     
 }
